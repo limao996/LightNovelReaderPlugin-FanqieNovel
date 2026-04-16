@@ -8,7 +8,10 @@ import io.nightfish.lightnovelreader.api.book.MutableChapterContent
 import io.nightfish.lightnovelreader.api.content.builder.ContentBuilder
 import io.nightfish.lightnovelreader.api.content.builder.image
 import io.nightfish.lightnovelreader.api.content.builder.simpleText
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
 import org.limao996.fanqie_novel.utils.get
+import org.limao996.fanqie_novel.utils.infoLog
 
 suspend fun FanqieNovelChapterContent(
     chapterId: String, bookId: String,
@@ -32,7 +35,8 @@ suspend fun FanqieNovelChapterContent(
         content = ContentBuilder().apply {
             val buffer = ArrayList<String>()
             if (args[0] == "3") {
-                for (line in json.resolvePathAsStringOrNull("$.data.content")!!.lineSequence()) {
+                for (line in (json.resolvePathAsStringOrNull("$.data.content")
+                    ?: return@apply).lineSequence()) {
                     if (line.contains("<img")) {
                         if (buffer.isNotEmpty()) {
                             simpleText(buffer.joinToString("\n"))
@@ -41,7 +45,7 @@ suspend fun FanqieNovelChapterContent(
                         extractImgSrc(line.trim())?.let { image(it.toUri()) }
                         continue
                     }
-                    buffer.add("\u3000\u3000" + line.trim())
+                    buffer.add("\u3000\u3000" + cleanHtml(line).trim())
                 }
                 if (buffer.isNotEmpty()) {
                     simpleText(buffer.joinToString("\n"))
@@ -57,6 +61,10 @@ suspend fun FanqieNovelChapterContent(
         lastChapter = prevId ?: "",
         nextChapter = nextId ?: ""
     )
+}
+
+private fun cleanHtml(html: String): String {
+    return Jsoup.clean(html, Safelist.none().addTags("img")).replace(Regex("\\[\\d+[a-z]]"), "")
 }
 
 private fun extractImgSrc(html: String): String? {
