@@ -1,4 +1,4 @@
-package org.limao996.fanqie_novel
+package io.limao996.fanqielib
 
 import cxhttp.CxHttp
 import cxhttp.CxHttpHelper
@@ -25,7 +25,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.limao996.fanqie_novel.utils.KotlinSerializationCborConverter
+import io.limao996.fanqielib.utils.KotlinSerializationCborConverter
 
 @Suppress("unused")
 @WebDataSource(
@@ -41,7 +41,7 @@ class FanqieNovelWebDataSource(
     val bookshelfRepositoryApi: BookshelfRepositoryApi,
 ) : WebBookDataSource {
     // 数据源唯一id
-    override val id = "org.limao996.fanqie_novel".hashCode()
+    override val id = "io.limao996.fanqielib".hashCode()
 
     // 协程作用域
     private var coroutineScope = CoroutineScope(Dispatchers.IO)

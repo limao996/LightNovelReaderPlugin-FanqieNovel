@@ -1,4 +1,4 @@
-package org.limao996.fanqie_novel
+package io.limao996.fanqielib
 
 import android.net.Uri
 import androidx.core.net.toUri
@@ -7,14 +7,10 @@ import com.nfeld.jsonpathkt.kotlinx.resolvePathOrNull
 import io.nightfish.lightnovelreader.api.book.BookInformation
 import io.nightfish.lightnovelreader.api.book.MutableBookInformation
 import io.nightfish.lightnovelreader.api.book.WordCount
-import io.nightfish.lightnovelreader.api.web.search.SearchResult
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonPrimitive
-import org.limao996.fanqie_novel.utils.get
-import org.limao996.fanqie_novel.utils.legacyToLocalDateTime
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
+import io.limao996.fanqielib.utils.get
+import io.limao996.fanqielib.utils.legacyToLocalDateTime
 
 suspend fun FanqieNovelBookInformation(
     id: String

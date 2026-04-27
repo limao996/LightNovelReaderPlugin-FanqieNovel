@@ -1,4 +1,4 @@
-package org.limao996.fanqie_novel.utils
+package io.limao996.fanqielib.utils
 
 import cxhttp.CxHttp
 import cxhttp.response.Response

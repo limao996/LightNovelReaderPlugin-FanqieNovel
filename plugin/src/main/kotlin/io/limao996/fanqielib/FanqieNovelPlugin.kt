@@ -1,4 +1,4 @@
-package org.limao996.fanqie_novel
+package io.limao996.fanqielib
 
 import android.content.BroadcastReceiver
 import android.content.Context

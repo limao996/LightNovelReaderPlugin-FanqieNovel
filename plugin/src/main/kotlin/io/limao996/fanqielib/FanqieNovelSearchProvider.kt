@@ -1,4 +1,4 @@
-package org.limao996.fanqie_novel
+package io.limao996.fanqielib
 
 import android.net.Uri
 import androidx.core.net.toUri
@@ -22,8 +22,8 @@ import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import org.limao996.fanqie_novel.utils.get
-import org.limao996.fanqie_novel.utils.legacyToLocalDateTime
+import io.limao996.fanqielib.utils.get
+import io.limao996.fanqielib.utils.legacyToLocalDateTime
 import java.net.URLEncoder
 import kotlin.time.Duration.Companion.seconds
 

@@ -1,14 +1,13 @@
-package org.limao996.fanqie_novel
+package io.limao996.fanqielib
 
 import com.nfeld.jsonpathkt.kotlinx.resolvePathAsStringOrNull
 import com.nfeld.jsonpathkt.kotlinx.resolvePathOrNull
-import io.nightfish.lightnovelreader.api.book.BookInformation
 import io.nightfish.lightnovelreader.api.book.BookVolumes
 import io.nightfish.lightnovelreader.api.book.ChapterInformation
 import io.nightfish.lightnovelreader.api.book.Volume
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonPrimitive
-import org.limao996.fanqie_novel.utils.get
+import io.limao996.fanqielib.utils.get
 
 suspend fun FanqieNovelBookVolumes(id: String): BookVolumes {
     val args = id.split(':')

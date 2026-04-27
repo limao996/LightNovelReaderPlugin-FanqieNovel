@@ -1,6 +1,6 @@
 @file:Suppress("OPT_IN_USAGE")
 
-package org.limao996.fanqie_novel.utils
+package io.limao996.fanqielib.utils
 
 import cxhttp.converter.CxHttpConverter
 import cxhttp.response.CxHttpResult

@@ -9,15 +9,15 @@ plugins {
 }
 
 android {
-    namespace = "org.limao996.fanqie_novel"
+    namespace = "io.limao996.fanqielib"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "org.limao996.fanqie_novel"
+        applicationId = "io.limao996.fanqielib"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
     }
     buildFeatures {
         compose = true

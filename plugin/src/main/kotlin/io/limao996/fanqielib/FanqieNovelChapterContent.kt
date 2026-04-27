@@ -1,4 +1,4 @@
-package org.limao996.fanqie_novel
+package io.limao996.fanqielib
 
 import androidx.core.net.toUri
 import com.nfeld.jsonpathkt.kotlinx.resolvePathAsStringOrNull
@@ -10,8 +10,7 @@ import io.nightfish.lightnovelreader.api.content.builder.image
 import io.nightfish.lightnovelreader.api.content.builder.simpleText
 import org.jsoup.Jsoup
 import org.jsoup.safety.Safelist
-import org.limao996.fanqie_novel.utils.get
-import org.limao996.fanqie_novel.utils.infoLog
+import io.limao996.fanqielib.utils.get
 
 suspend fun FanqieNovelChapterContent(
     chapterId: String, bookId: String,
