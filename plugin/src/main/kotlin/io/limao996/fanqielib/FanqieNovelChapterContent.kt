@@ -38,16 +38,20 @@ suspend fun FanqieNovelChapterContent(
                     ?: return@apply).lineSequence()) {
                     if (line.contains("<img")) {
                         if (buffer.isNotEmpty()) {
-                            simpleText(buffer.joinToString("\n"))
+                            simpleText(buffer.joinToString("\n\n"))
                             buffer.clear()
                         }
                         extractImgSrc(line.trim())?.let { image(it.toUri()) }
                         continue
                     }
-                    buffer.add("\u3000\u3000" + cleanHtml(line).trim())
+
+                    cleanHtml(line).trim().split("\n").filter { it.isNotBlank() }
+                        .also { if (it.isEmpty()) break }.joinToString("\n\n") {
+                            "ㅤㅤ${it.trim()}"
+                        }.let(buffer::add)
                 }
                 if (buffer.isNotEmpty()) {
-                    simpleText(buffer.joinToString("\n"))
+                    simpleText(buffer.joinToString("\n\n"))
                     buffer.clear()
                 }
             } else {
